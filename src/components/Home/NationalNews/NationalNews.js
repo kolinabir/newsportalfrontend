@@ -11,7 +11,6 @@ const NationalNews = async () => {
       <h1 className="col-span-4 lg:col-span-2 text-2xl font-bold">
         National News
       </h1>
-
       <div className="flex">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-2">
           {/* First news item */}
@@ -38,7 +37,7 @@ const NationalNews = async () => {
           {news.data.slice(1, 4).map((n, index) => (
             <div
               key={index}
-              className="bg-gray-200 p-4 col-span-4  lg:col-span-2"
+              className="bg-gray-200 p-4 col-span-4 lg:col-span-2"
             >
               <div className="flex justify-between">
                 <div>
@@ -59,15 +58,16 @@ const NationalNews = async () => {
           ))}
         </div>
         <div>
-        {/* <h1 className="text-xl font-bold mb-4">Latest News</h1> */}
+        <h1 className="text-xl font-bold mb-4">Latest News</h1>
         {news.data.slice(1,4).map((n, index) => (
           <div key={index} className="bg-gray-200 p-4 w-96 h-40 ml-2 mb-2">
             <div className="flex">
+             
             <div>
             <h2 className="text-xl font-bold">{n.title}</h2>
             <p>{n.description}</p>
             </div>
-            <div className="relative h-16 w-36">
+            <div className="relative h-24 w-48">
               <Image
                 src={n.image[0]}
                 alt={n.title}
