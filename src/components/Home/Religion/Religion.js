@@ -1,5 +1,9 @@
-const Religion = () => {
-  return <div>Religion</div>;
-};
+import React from 'react'
 
-export default Religion;
+const Religion = () => {
+  return (
+    <div>Religion</div>
+  )
+}
+
+export default Religion
