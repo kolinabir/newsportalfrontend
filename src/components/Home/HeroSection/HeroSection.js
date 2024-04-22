@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroSection = async () => {
   const data = await fetch("http://localhost:5000/news/");
@@ -7,14 +8,12 @@ const HeroSection = async () => {
   return (
     <div className="flex items-center">
       <div className="flex-1">
-        <div className="container mx-auto ">
+        
+        <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-2">
             {/* First news item */}
             {news.data.slice(0, 1).map((n, index) => (
-              <div
-                key={index}
-                className="bg-white border rounded-lg h-[258px] p-4 col-span-12"
-              >
+              <div key={index} className="bg-gray-200 h-[258px] p-4 col-span-12">
                 <div className="flex justify-between">
                   <div>
                     <h2 className="text-4xl font-bold">{n.title}</h2>
@@ -34,10 +33,7 @@ const HeroSection = async () => {
             ))}
             {/* Second and third news items */}
             {news.data.slice(1, 3).map((n, index) => (
-              <div
-                key={index}
-                className="bg-white border rounded-lg h-[136px]  p-4 col-span-6"
-              >
+              <div key={index} className="bg-gray-200 h-[136px]  p-4 col-span-6">
                 <div className="flex   justify-between">
                   <div>
                     <h2 className="text-xl font-medium">{n.title}</h2>
