@@ -2,7 +2,7 @@ import React from 'react'
 
 const Religion = () => {
   return (
-    <div>Religion</div>
+    <div></div>
   )
 }
 
