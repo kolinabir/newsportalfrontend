@@ -12,6 +12,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const checkAuthentication = async () => {
+      setLoading(true);
       try {
         const response = await fetch("http://localhost:5000/auth/check-auth", {
           headers: {
@@ -22,10 +23,12 @@ export const AuthProvider = ({ children }) => {
         if (response.ok) {
           const data = await response.json();
           setUser(data.data);
+          setLoading(false);
         } else {
           console.error("Error fetching user details");
           localStorage.removeItem("token");
           setUser(null);
+          setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching user details", error);
