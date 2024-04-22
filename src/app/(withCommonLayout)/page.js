@@ -10,7 +10,6 @@ import Sports from "@/components/Home/Sports/Sports";
 
 const MainHomePage = () => {
   return (
-    //add a container box
     <div
       className="
       container
