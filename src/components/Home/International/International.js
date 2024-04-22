@@ -16,8 +16,7 @@ const International = async () => {
           <div key={index} className="bg-gray-200 p-4">
             <div className="flex justify-between">
               <div>
-                <h2 className="text-xl font-bold">{n.title}</h2>
-                <p>{n.description}</p>
+                <h2 className="text-xl font-medium">{n.title}</h2>
               </div>
               <div className="relative h-40 w-60">
                 <Image
@@ -45,7 +44,7 @@ const International = async () => {
                     className="rounded-md"
                   />
                 </div>
-                <h2 className="text-xl font-bold">{n.title}</h2>
+                <h2 className="text-xl font-medium">{n.title}</h2>
                 <p>{n.description}</p>
               </div>
             </div>
@@ -55,8 +54,7 @@ const International = async () => {
           <div key={index} className="bg-gray-200 p-4">
             <div className="flex justify-between">
               <div>
-                <h2 className="text-xl font-bold">{n.title}</h2>
-                <p>{n.description}</p>
+                <h2 className="text-xl font-medium">{n.title}</h2>
               </div>
               <div className="relative h-40 w-40">
                 <Image

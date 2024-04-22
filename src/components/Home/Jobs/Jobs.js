@@ -27,7 +27,7 @@ const Jobs = async () => {
                   className="rounded-md"
                 />
               </div>
-                <h2 className="text-xl font-bold">{n.title}</h2>
+                <h2 className="text-xl font-medium">{n.title}</h2>
                 <p>{n.description}</p>
               </div>
               
@@ -39,10 +39,9 @@ const Jobs = async () => {
           <div key={index} className="bg-gray-200 p-4">
             <div className="flex justify-between">
               <div>
-                <h2 className="text-xl font-bold">{n.title}</h2>
-                <p>{n.description}</p>
+                <h2 className="text-xl font-medium">{n.title}</h2>
               </div>
-              <div className="relative h-40 w-40">
+              <div className="relative h-20 w-40">
                 <Image
                   src={n.image[0]}
                   alt={n.title}
@@ -58,10 +57,9 @@ const Jobs = async () => {
           <div key={index} className="bg-gray-200 p-4">
             <div className="flex justify-between">
               <div>
-                <h2 className="text-xl font-bold">{n.title}</h2>
-                <p>{n.description}</p>
+                <h2 className="text-xl font-medium">{n.title}</h2>
               </div>
-              <div className="relative h-40 w-40">
+              <div className="relative h-20 w-40">
                 <Image
                   src={n.image[0]}
                   alt={n.title}

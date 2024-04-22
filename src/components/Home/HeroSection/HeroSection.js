@@ -7,9 +7,7 @@ const HeroSection = async () => {
   return (
     <div className="min-h-screen flex items-center">
       <div className="flex-1">
-        <div className="flex justify-center items-center bg-gray-800 text-white">
-          <h1 className="text-4xl">Welcome to the News App</h1>
-        </div>
+        
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-2">
             {/* First news item */}
@@ -20,7 +18,7 @@ const HeroSection = async () => {
                     <h2 className="text-4xl font-bold">{n.title}</h2>
                     <p className="">{n.description}</p>
                   </div>
-                  <div className="relative w-[500px] h-[202px]">
+                  <div className="relative w-[700px] h-[228px]">
                     <Image
                       src={n.image[0]}
                       alt={n.title}

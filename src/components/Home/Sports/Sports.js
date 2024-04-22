@@ -18,7 +18,7 @@ const Sports = async () => {
           <div key={index} className="bg-gray-200 p-4 row-span-3">
             <div className="flex justify-between">
               <div>
-              <div className="relative h-60 ">
+              <div className="relative h-60  ">
                 <Image
                   src={n.image[0]}
                   alt={n.title}
