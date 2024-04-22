@@ -8,7 +8,10 @@ const NationalNews = async () => {
 
   return (
     <div className="md:border-b-2 md:pb-4">
-      <h1 className="text-xl font-bold">National News</h1>
+      <div className="grid mt-6 mb-3 grid-cols-10">
+      <h1 className="text-xl font-bold col-span-7">National News</h1>
+      <h1 className="text-xl font-bold ml-14 col-span-3">Latest News</h1>
+      </div>
       <div className="flex">
         <div className="grid grid-cols-1 md:border-t-black md:pt-4 lg:grid-cols-4 gap-2">
           {/* First news item */}

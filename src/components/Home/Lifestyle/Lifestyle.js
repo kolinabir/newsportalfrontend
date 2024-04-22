@@ -7,7 +7,7 @@ const Lifestyle = async () => {
   // console.log(news.data);
 
   return (
-    <div>
+    <div className="">
       <h1 className="text-2xl font-bold">Lifestyle News</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
         {/* First news item */}
@@ -25,7 +25,7 @@ const Lifestyle = async () => {
             </div>
             {/* Text on the right side */}
             <div>
-              <h2 className="text-xl font-bold">{n.title}</h2>
+              <h2 className="text-5xl font-bold">{n.title}</h2>
               <p>{n.description}</p>
             </div>
           </div>

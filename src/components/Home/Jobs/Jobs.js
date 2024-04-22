@@ -7,7 +7,7 @@ const Jobs = async () => {
   // console.log(news.data);
 
   return (
-    <div>
+    <div className="">
       <h1 className="text-2xl font-bold">
         Jobs News
       </h1>
