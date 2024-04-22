@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Shared/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import HeroSection from "@/components/Home/HeroSection/HeroSection";
+import { AuthProvider } from "./auth-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +15,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* <div className="min-h-screen"> */}
-      <body className={inter.className}>{children}</body>
-      {/* </div> */}
+      <AuthProvider>
+        <body className={inter.className}>{children}</body>
+      </AuthProvider>
     </html>
   );
 }

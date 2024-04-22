@@ -1,6 +1,14 @@
+"use client";
+import { useAuth } from "@/app/auth-context";
+import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
+  const { user, signOut, loading } = useAuth();
+  const handleSignOut = async () => {
+    await signOut();
+  };
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -9,7 +17,8 @@ const Navbar = () => {
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Flowbite
+            {user ? `Welcome, ${user.email}` : ""}
+            {loading ? "Loading..." : ""}
           </span>
         </a>
         <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -63,6 +72,7 @@ const Navbar = () => {
               </li>
               <li>
                 <a
+                  onClick={handleSignOut}
                   href="#"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                 >
@@ -127,19 +137,20 @@ const Navbar = () => {
               </a>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/login"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
-                Pricing
-              </a>
+                Login
+              </Link>
             </li>
             <li>
               <a
+                onClick={handleSignOut}
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
               >
-                Contact
+                Sign out
               </a>
             </li>
           </ul>
