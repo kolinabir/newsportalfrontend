@@ -12,7 +12,7 @@ const Lifestyle = async () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
         {/* First news item */}
         {news.data.slice(0, 1).map((n, index) => (
-          <div key={index} className="bg-gray-200 p-4 col-span-3 flex">
+          <div key={index} className="bg-white border rounded-lg  p-4 col-span-3 flex">
             {/* Image on the left side */}
             <div className="relative h-60 w-[500px] mr-4">
               <Image
@@ -33,7 +33,7 @@ const Lifestyle = async () => {
 
         {/* Last three news items as rows */}
         {news.data.slice(4, 7).map((n, index) => (
-          <div key={index} className="bg-gray-200 p-4">
+          <div key={index} className="bg-white border rounded-lg  p-4">
             <div className="relative md:h-40 ">
               <Image
                 src={n.image[0]}

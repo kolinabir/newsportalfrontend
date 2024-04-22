@@ -16,7 +16,7 @@ const Politics = async () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
         {/* First news item */}
         {news.data.slice(0,1).map((n, index) => (
-          <div key={index} className="bg-gray-200 p-4 row-span-3">
+          <div key={index} className="bg-white border rounded-lg  p-4 row-span-3">
             <div className="flex justify-between">
               <div>
               <div className="relative h-60 ">
@@ -37,7 +37,7 @@ const Politics = async () => {
         ))}
         {/* Last three news items as rows */}
         {news.data.slice(4, 7).map((n, index) => (
-          <div key={index} className="bg-gray-200 p-4">
+          <div key={index} className="bg-white border rounded-lg  p-4">
             <div className="flex justify-between">
               <div>
                 <h2 className="text-xl font-medium">{n.title}</h2>
@@ -55,7 +55,7 @@ const Politics = async () => {
           </div>
         ))}
         {news.data.slice(1, 4).map((n, index) => (
-          <div key={index} className="bg-gray-200 p-4">
+          <div key={index} className="bg-white border rounded-lg  p-4">
             <div className="flex justify-between">
               <div>
                 <h2 className="text-xl font-medium">{n.title}</h2>

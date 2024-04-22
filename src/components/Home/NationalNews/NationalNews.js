@@ -7,13 +7,13 @@ const NationalNews = async () => {
   // console.log(news.data);
 
   return (
-    <div>
-      <h1 className="text-xl font-bold">International News</h1>
+    <div className="md:border-b-2 md:pb-4">
+      <h1 className="text-xl font-bold">National News</h1>
       <div className="flex">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-2">
+        <div className="grid grid-cols-1 md:border-t-black md:pt-4 lg:grid-cols-4 gap-2">
           {/* First news item */}
           {news.data.slice(0, 1).map((n, index) => (
-            <div key={index} className="bg-gray-200 p-4 row-span-3 col-span-2">
+            <div key={index} className="bg-white border-r-2  rounded-lg  p-4 row-span-3 col-span-2">
               <div className="flex justify-between">
                 <div>
                 <div className="relative h-80 w-[505px]">
@@ -36,7 +36,7 @@ const NationalNews = async () => {
           {news.data.slice(1, 4).map((n, index) => (
             <div
               key={index}
-              className="bg-gray-200 p-4 col-span-4 lg:col-span-2"
+              className="bg-white border-b-2 rounded-lg  p-4 col-span-4 lg:col-span-2"
             >
               <div className="flex justify-between">
                 <div>
@@ -57,8 +57,9 @@ const NationalNews = async () => {
         </div>
         <div>
           
-          {news.data.slice(1, 4).map((n, index) => (
-            <div key={index} className="bg-gray-200 p-4 w-96 h-36 ml-2 mb-2">
+         <div className="border-l-2 ml-4">
+         {news.data.slice(1, 4).map((n, index) => (
+            <div key={index} className="bg-white rounded-lg border-b-2  p-4 w-96 h-36 ml-2 mb-2">
               <div className="flex">
                 <div>
                   <h2 className="text-xl font-medium">{n.title}</h2>
@@ -75,6 +76,7 @@ const NationalNews = async () => {
               </div>
             </div>
           ))}
+         </div>
         </div>
       </div>
     </div>
