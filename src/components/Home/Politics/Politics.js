@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Politics = async () => {
   const data = await fetch("http://localhost:5000/news/");
@@ -8,36 +9,41 @@ const Politics = async () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold">
-        Politics News
-      </h1>
-      <hr/>
+      <h1 className="text-2xl font-bold">Politics News</h1>
+      <hr />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
         {/* First news item */}
-        {news.data.slice(0,1).map((n, index) => (
-          <div key={index} className="bg-white border rounded-lg  p-4 row-span-3">
+        {news.data.slice(0, 1).map((n, index) => (
+          <Link
+            key={index}
+            href={`news/${n._id}`}
+            className="bg-white border rounded-lg  p-4 row-span-3"
+          >
             <div className="flex justify-between">
               <div>
-              <div className="relative h-60 ">
-                <Image
-                  src={n.image[0]}
-                  alt={n.title}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-md"
-                />
-              </div>
+                <div className="relative h-60 ">
+                  <Image
+                    src={n.image[0]}
+                    alt={n.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-md"
+                  />
+                </div>
                 <h2 className="text-xl font-medium">{n.title}</h2>
                 <p>{n.description}</p>
               </div>
-              
             </div>
-          </div>
+          </Link>
         ))}
         {/* Last three news items as rows */}
         {news.data.slice(4, 7).map((n, index) => (
-          <div key={index} className="bg-white border rounded-lg  p-4">
+          <Link
+            key={index}
+            href={`news/${n._id}`}
+            className="bg-white border rounded-lg  p-4"
+          >
             <div className="flex justify-between">
               <div>
                 <h2 className="text-xl font-medium">{n.title}</h2>
@@ -52,10 +58,14 @@ const Politics = async () => {
                 />
               </div>
             </div>
-          </div>
+          </Link>
         ))}
         {news.data.slice(1, 4).map((n, index) => (
-          <div key={index} className="bg-white border rounded-lg  p-4">
+          <Link
+            key={index}
+            href={`news/${n._id}`}
+            className="bg-white border rounded-lg  p-4"
+          >
             <div className="flex justify-between">
               <div>
                 <h2 className="text-xl font-medium">{n.title}</h2>
@@ -70,7 +80,7 @@ const Politics = async () => {
                 />
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

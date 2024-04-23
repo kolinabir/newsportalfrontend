@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Sports = async () => {
   const data = await fetch("http://localhost:5000/news/");
@@ -12,13 +13,14 @@ const Sports = async () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
         {/* First news item */}
         {news.data.slice(0, 1).map((n, index) => (
-          <div
+          <Link
             key={index}
-            className="bg-white border rounded-lg  p-4 row-span-3"
+            href={`news/${n._id}`}
+            className="bg-white border rounded-lg p-4 row-span-3"
           >
             <div className="flex justify-between">
               <div>
-                <div className="relative h-60 ">
+                <div className="relative  h-60 ">
                   <Image
                     src={n.image[0]}
                     alt={n.title}
@@ -28,14 +30,18 @@ const Sports = async () => {
                   />
                 </div>
                 <h2 className="text-xl font-bold">{n.title}</h2>
-                <p>{n.description}</p>
+                <p className="hidden lg:block ">{n.description}</p>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
         {/* Last three news items as rows */}
         {news.data.slice(4, 7).map((n, index) => (
-          <div key={index} className="bg-white border rounded-lg  p-4">
+          <Link
+            key={index}
+            href={`news/${n._id}`}
+            className="bg-white border rounded-lg  p-4"
+          >
             <div className="flex justify-between">
               <div>
                 <h2 className="text-xl font-medium">{n.title}</h2>
@@ -50,10 +56,14 @@ const Sports = async () => {
                 />
               </div>
             </div>
-          </div>
+          </Link>
         ))}
         {news.data.slice(1, 4).map((n, index) => (
-          <div key={index} className="bg-white border rounded-lg  p-4">
+          <Link
+            key={index}
+            href={`news/${n._id}`}
+            className="bg-white border rounded-lg  p-4"
+          >
             <div className="flex justify-between">
               <div>
                 <h2 className="text-xl font-medium">{n.title}</h2>
@@ -68,7 +78,7 @@ const Sports = async () => {
                 />
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

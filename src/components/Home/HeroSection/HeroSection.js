@@ -6,7 +6,7 @@ const HeroSection = async () => {
   const news = await data.json();
 
   return (
-    <div className="flex items-center">
+    <div className="lg:flex lg:items-center">
       <div className="flex-1">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-2">
@@ -15,15 +15,15 @@ const HeroSection = async () => {
               <Link
                 key={index}
                 href={`news/${n._id}`}
-                className="bg-white rounded-lg border h-[258px] p-4 col-span-12"
+                className="bg-white rounded-lg border  lg:h-[258px] lg:p-4 lg:col-span-12"
               >
                 <div key={index}>
-                  <div className="flex justify-between">
+                  <div className="flex flex-col-reverse p-2 lg:p-0  lg:flex-row justify-between">
                     <div>
-                      <h2 className="text-4xl font-bold">{n.title}</h2>
-                      <p className="">{n.description}</p>
+                      <h2 className="lg:text-4xl text-2xl font-bold">{n.title}</h2>
+                      <p className="hidden lg:block">{n.description}</p>
                     </div>
-                    <div className="relative w-[700px] h-[228px]">
+                    <div className="relative  h-48 lg:w-[700px] lg:h-[228px]">
                       <Image
                         src={n.image[0]}
                         alt={n.title}
@@ -38,22 +38,22 @@ const HeroSection = async () => {
             ))}
             {/* Second and third news items */}
             {news.data.slice(1, 3).map((n, index) => (
-              <div
+              <Link
                 key={index}
                 href={`news/${n._id}`}
-                className="bg-white rounded-lg border h-[136px]  p-4 col-span-6"
+                className="bg-white rounded-lg border lg:h-[136px] lg:p-4 p-2 lg:col-span-6"
               >
-                <div className="flex   justify-between">
+                <div className="flex  justify-between">
                   <div>
                     <h2 className="text-xl font-medium">{n.title}</h2>
-                    <p>
+                    <p className="hidden lg:block">
                       {n.description.split(" ").length > 5
                         ? n.description.split(" ").slice(0, 10).join(" ") +
                           "..."
                         : n.description}
                     </p>
                   </div>
-                  <div className="relative h-24 w-52">
+                  <div className="relative h-16 w-40 lg:h-24 lg:w-52">
                     <Image
                       src={n.image[0]}
                       alt={n.title}
@@ -63,19 +63,20 @@ const HeroSection = async () => {
                     />
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
             {/* Rest of the news items */}
             {news.data.slice(3).map((n, index) => (
-              <div
+              <Link
                 key={index}
-                className="bg-white rounded-lg border h-[118px] p-4 col-span-4"
+                href={`news/${n._id}`}
+                className="bg-white rounded-lg border lg:h-[118px] md:p-4 p-2 md:col-span-4"
               >
                 <div className="flex justify-between">
                   <div>
                     <h2 className="text-xl font-medium">{n.title}</h2>
                   </div>
-                  <div className="relative h-24 w-56">
+                  <div className="relative h-16 w-40 lg:h-24 lg:w-56">
                     <Image
                       src={n.image[0]}
                       alt={n.title}
@@ -85,12 +86,12 @@ const HeroSection = async () => {
                     />
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </div>
-      <div className="col-span-2 lg:col-span-4 bg-white rounded-lg border flex justify-center items-center ml-14 p-4">
+      <div className="col-span-2 lg:col-span-4 bg-white rounded-lg border lg:flex lg:justify-center lg:items-center lg:ml-14 lg:p-4">
         Feedback section is here
       </div>
     </div>
