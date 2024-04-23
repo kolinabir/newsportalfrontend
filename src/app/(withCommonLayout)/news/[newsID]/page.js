@@ -1,11 +1,104 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 const SingleNewsDetails = ({ params }) => {
-  console.log(params.newsID);
+  const [news, setNews] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        `http://localhost:5000/news/${params.newsID}`
+      );
+      const data = await response.json();
+      console.log(data.data[0]);
+      setNews(data.data[0]);
+    };
+    fetchData();
+  }, [params.newsID]);
+
+  if (!news) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div>
-      <h1>Single News Details</h1>
-      <p>{params.newsID}</p>
+    <div className="container mx-auto px-4 lg:px-0">
+      <h1 className="text-3xl font-bold mb-4">{news.title}</h1>
+      <div className="border-b border-gray-400 mb-4"></div>
+      <p className="text-sm text-gray-500 mb-4">
+        Published at: {new Date(news.createdAt).toLocaleString()}
+      </p>
+      {news.image && news.image[0] && (
+        <div className="relative h-96 mb-8">
+          <Image
+            src={news.image[0]}
+            alt={news.title}
+            layout="fill"
+            objectFit="cover"
+            className="rounded-md"
+          />
+        </div>
+      )}
+      <div className="grid grid-cols-1 lg:grid-cols-1 gap-1 mb-4">
+        {news.body.slice(0, 2).map((item, index) => (
+          <p
+            key={index}
+            className={item.textSize === "large" ? "text-lg mb-4" : "mb-4"}
+          >
+            {item.para}
+          </p>
+        ))}
+      </div>
+      {news.image && news.image[1] && (
+        <div className="relative h-96 mb-8">
+          <Image
+            src={news.image[1]}
+            alt={news.title}
+            layout="fill"
+            objectFit="cover"
+            className="rounded-md"
+          />
+        </div>
+      )}
+      <div className="grid grid-cols-1 lg:grid-cols-1 gap-1 mb-4">
+        {news.body.slice(2, 4).map((item, index) => (
+          <p key={index} className="mb-4">
+            {item.para}
+          </p>
+        ))}
+      </div>
+      {news.image && news.image[2] && (
+        <div className="relative h-96 mb-8">
+          <Image
+            src={news.image[2]}
+            alt={news.title}
+            layout="fill"
+            objectFit="cover"
+            className="rounded-md"
+          />
+        </div>
+      )}
+      <div className="grid grid-cols-1 lg:grid-cols-1 gap-1 mb-4">
+        {news.body.slice(4).map((item, index) => (
+          <p key={index} className="mb-4">
+            {item.para.split("\n").map((text, i) => (
+              <React.Fragment key={i}>
+                {i > 0 && <br />} {text}
+              </React.Fragment>
+            ))}
+          </p>
+        ))}
+      </div>
+      <div className="mb-2">
+        {news.categories.map((category, index) => (
+          <Link href={`/categories/${category}`} key={index}>
+            <p className="inline-block px-2 py-1 mr-2 mb-2 bg-gray-200 rounded-md text-xs text-gray-700 hover:bg-gray-300">
+              {category}
+            </p>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
