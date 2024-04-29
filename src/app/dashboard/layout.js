@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { useAuth } from "../auth-context";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 const DashboardLayout = ({ children }) => {
   const { user, loading } = useAuth();
@@ -66,7 +67,7 @@ const DashboardLayout = ({ children }) => {
               </li>
               <li className="my-2">
                 <Link
-                  href="/view-all"
+                  href="/dashboard/viewallnews"
                   className="flex items-center px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200"
                 >
                   <svg
@@ -88,7 +89,7 @@ const DashboardLayout = ({ children }) => {
               </li>
               <li className="my-2">
                 <Link
-                  href="/update"
+                  href="/dashboard/updatenews"
                   className="flex items-center px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200"
                 >
                   <svg

@@ -6,11 +6,7 @@ import { redirect } from "next/navigation";
 const DashBoardPage = () => {
   const { user, loading } = useAuth();
   const isUser = user && !loading;
-  useEffect(() => {
-    if (!isUser && !loading) {
-      redirect("/login");
-    }
-  }, [user, loading, isUser]);
+
   return <div>Asdasdasdsadasdsa</div>;
 };
 

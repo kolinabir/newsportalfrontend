@@ -1,22 +1,10 @@
-"use client";
-import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { viewAllNews } from "@/lib/newsApi/viewSingleNews";
+import React from "react";
 
-const SingleNewsDetails = ({ params }) => {
-  const [news, setNews] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(
-        `http://localhost:5000/news/${params.newsID}`
-      );
-      const data = await response.json();
-      console.log(data.data[0]);
-      setNews(data.data[0]);
-    };
-    fetchData();
-  }, [params.newsID]);
+const SingleNewsDetails = async ({ params }) => {
+  const news = await viewAllNews(params.newsID);
 
   if (!news) {
     return <div>Loading...</div>;
@@ -32,7 +20,7 @@ const SingleNewsDetails = ({ params }) => {
       {news.image && news.image[0] && (
         <div className="relative h-96 mb-8">
           <Image
-            src={news.image[0]}
+            src={news.image[0] || ""}
             alt={news.title}
             layout="fill"
             objectFit="cover"
@@ -53,7 +41,7 @@ const SingleNewsDetails = ({ params }) => {
       {news.image && news.image[1] && (
         <div className="relative h-96 mb-8">
           <Image
-            src={news.image[1]}
+            src={news.image[1] || ""}
             alt={news.title}
             layout="fill"
             objectFit="cover"
@@ -71,7 +59,7 @@ const SingleNewsDetails = ({ params }) => {
       {news.image && news.image[2] && (
         <div className="relative h-96 mb-8">
           <Image
-            src={news.image[2]}
+            src={news.image[2] || ""}
             alt={news.title}
             layout="fill"
             objectFit="cover"

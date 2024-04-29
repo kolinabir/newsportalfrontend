@@ -3,7 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Jobs = async () => {
-  const data = await fetch("http://localhost:5000/news/");
+  const data = await fetch("http://localhost:5000/news/", {
+    next: {
+      revalidate: 1,
+    },
+    cache: "no-store",
+  });
   const news = await data.json();
   // console.log(news.data);
 

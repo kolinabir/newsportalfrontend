@@ -2,7 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 const HeroSection = async () => {
-  const data = await fetch("http://localhost:5000/news/");
+  const data = await fetch(
+    "http://localhost:5000/news/",
+
+    {
+      next: {
+        revalidate: 1,
+      },
+      cache: "no-store",
+    }
+  );
   const news = await data.json();
 
   return (
@@ -20,7 +29,9 @@ const HeroSection = async () => {
                 <div key={index}>
                   <div className="flex flex-col-reverse p-2 lg:p-0  lg:flex-row justify-between">
                     <div>
-                      <h2 className="lg:text-4xl text-2xl font-bold">{n.title}</h2>
+                      <h2 className="lg:text-4xl text-2xl font-bold">
+                        {n.title}
+                      </h2>
                       <p className="hidden lg:block">{n.description}</p>
                     </div>
                     <div className="relative  h-48 lg:w-[700px] lg:h-[228px]">
