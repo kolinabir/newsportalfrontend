@@ -13,9 +13,9 @@ const NationalNews = async () => {
   // console.log(news.data);
 
   return (
-    <div className="md:border-b-2 md:mb-10  md:border-gray-400 rounded-lg md:mb-10 md:pb-4">
+    <div className="md:border-b-2   md:border-gray-400 rounded-lg md:mb-10 md:pb-4">
       <div className="md:grid md:grid-cols-10">
-        <h1 className="text-xl font-bold col-span-7">National News</h1>
+        <h1 className="text-xl font-bold md:mb-4 col-span-7">National News</h1>
         <h1 className="text-xl hidden lg:block font-bold ml-14 col-span-3">
           Latest News
         </h1>
