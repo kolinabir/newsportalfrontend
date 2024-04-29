@@ -8,8 +8,8 @@ const Entertainment = async () => {
   // console.log(news.data);
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold">Entertainment News</h1>
+    <div className="md:mb-10 ">
+      <h1 className="text-2xl  font-bold">Entertainment News</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
         {/* First news item */}

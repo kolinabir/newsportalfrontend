@@ -11,7 +11,7 @@ const SingleNewsDetails = async ({ params }) => {
   }
 
   return (
-    <div className="container mx-auto px-4 lg:px-0">
+    <div className="container md:mx-20 mx-auto px-4 lg:px-0">
       <h1 className="text-3xl font-bold mb-4">{news.title}</h1>
       <div className="border-b border-gray-400 mb-4"></div>
       <p className="text-sm text-gray-500 mb-4">

@@ -13,21 +13,21 @@ const NationalNews = async () => {
   // console.log(news.data);
 
   return (
-    <div className="md:border-b-2 md:pb-4">
-      <div className="md:grid md:mt-6 md:mb-3 md:grid-cols-10">
+    <div className="md:border-b-2 md:mb-10  md:border-gray-400 rounded-lg md:mb-10 md:pb-4">
+      <div className="md:grid md:grid-cols-10">
         <h1 className="text-xl font-bold col-span-7">National News</h1>
         <h1 className="text-xl hidden lg:block font-bold ml-14 col-span-3">
           Latest News
         </h1>
       </div>
       <div className="flex">
-        <div className="grid grid-cols-1 md:border-t-black md:pt-4 lg:grid-cols-4 gap-2">
+        <div className="grid grid-cols-1 md:pr-4 md:pt-4 lg:grid-cols-4 gap-2">
           {/* First news item */}
           {news.data.slice(0, 1).map((n, index) => (
             <Link
             key={index}
             href={`news/${n._id}`}
-              className="bg-white border-r-2  rounded-lg  p-4 md:row-span-3 md:col-span-2"
+              className="bg-white border-r-2 rounded-lg p-4 md:row-span-3 md:col-span-2"
             >
               <div className="flex justify-between">
                 <div>
@@ -51,7 +51,7 @@ const NationalNews = async () => {
             <Link
             key={index}
             href={`news/${n._id}`}
-              className="bg-white border-b-2 rounded-lg  p-4 col-span-4 lg:col-span-2"
+              className="bg-white border-b-2 rounded-lg  p-4  col-span-4 lg:col-span-2"
             >
               <div className="flex justify-between">
                 <div>
@@ -71,12 +71,12 @@ const NationalNews = async () => {
           ))}
         </div>
         <div>
-          <div className="border border-l-2 ml-4">
+          <div className=" border-l-2 pl-4">
             {news.data.slice(1, 4).map((n, index) => (
               <Link
               key={index}
               href={`news/${n._id}`}
-                className="hidden lg:block bg-white rounded-lg border-b-2  p-4 w-96 h-36 ml-2 mb-2"
+                className="hidden lg:block bg-white rounded-lg border-b-2 p-4 w-96 h-36 ml-2 mb-2"
               >
                 <div className="flex">
                   <div>

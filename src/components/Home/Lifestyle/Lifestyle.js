@@ -12,7 +12,7 @@ const Lifestyle = async () => {
   const news = await data.json();
 
   return (
-    <div className="">
+    <div className="md:mb-10 ">
       <h1 className="text-2xl font-bold">Lifestyle News</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
         {/* First news item */}
