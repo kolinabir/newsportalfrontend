@@ -13,7 +13,7 @@ const MainHomePage = () => {
     <div
       className="
       container
-      md:mx-20 mx-auto
+     mx-auto
       px-4
       sm:px-6
       lg:px-8"
