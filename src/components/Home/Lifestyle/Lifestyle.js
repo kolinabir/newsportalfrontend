@@ -12,8 +12,8 @@ const Lifestyle = async () => {
   const news = await data.json();
 
   return (
-    <div className="">
-      <h1 className="text-2xl font-bold">Lifestyle News</h1>
+    <div className="md:mb-10 ">
+      <h1 className="text-2xl md:mb-4 font-bold">Lifestyle News</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
         {/* First news item */}
         {news.data.slice(0, 1).map((n, index) => (

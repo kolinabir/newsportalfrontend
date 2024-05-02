@@ -15,9 +15,9 @@ const HeroSection = async () => {
   const news = await data.json();
 
   return (
-    <div className="lg:flex lg:items-center">
+    <div className="lg:flex md:mb-10 lg:items-center">
       <div className="flex-1">
-        <div className="container mx-auto">
+        <div className="container md:mx-20 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-2">
             {/* First news item */}
             {news.data.slice(0, 1).map((n, index) => (
@@ -77,7 +77,7 @@ const HeroSection = async () => {
               </Link>
             ))}
             {/* Rest of the news items */}
-            {news.data.slice(3).map((n, index) => (
+            {news.data.slice(3, 9).map((n, index) => (
               <Link
                 key={index}
                 href={`news/${n._id}`}
@@ -102,8 +102,8 @@ const HeroSection = async () => {
           </div>
         </div>
       </div>
-      <div className="col-span-2 lg:col-span-4 bg-white rounded-lg border lg:flex lg:justify-center lg:items-center lg:ml-14 lg:p-4">
-        Feedback section is here
+      <div className="col-span-2 lg:col-span-4 bg-white rounded-lg border lg:flex lg:justify-center lg:items-center lg:ml-28 lg:p-4">
+        Feedback
       </div>
     </div>
   );

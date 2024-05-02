@@ -153,7 +153,7 @@ const CreateNewNews = () => {
     }
   };
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl md:mx-20 mx-auto">
       <h1 className="text-3xl font-bold mb-6">Create New News</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

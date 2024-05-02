@@ -1,6 +1,6 @@
 import Entertainment from "@/components/Home/Entertainment/Entertainment";
 import HeroSection from "@/components/Home/HeroSection/HeroSection";
-import International from "@/components/Home/International/international";
+import International from "@/components/Home/International/International";
 import Jobs from "@/components/Home/Jobs/Jobs";
 import Lifestyle from "@/components/Home/Lifestyle/Lifestyle";
 import NationalNews from "@/components/Home/NationalNews/NationalNews";
@@ -13,7 +13,7 @@ const MainHomePage = () => {
     <div
       className="
       container
-      mx-auto
+      md:mx-20 mx-auto
       px-4
       sm:px-6
       lg:px-8"
