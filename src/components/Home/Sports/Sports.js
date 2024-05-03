@@ -23,9 +23,14 @@ const Sports = async () => {
             href={`news/${n._id}`}
             className="bg-white border rounded-lg p-4 row-span-3"
           >
-            <div className="flex justify-between">
-              <div>
-                <div className="relative  h-60 ">
+            <div className="flex justify-between md:flex-col-reverse">
+                <div className="flex items-center space-x-4">
+                  <div>
+                    <h2 className="text-xl font-bold">{n.title}</h2>
+                    <p>{n.description}</p>
+                  </div>
+                </div>
+                <div className="relative h-16 w-20 md:h-80 md:w-[455px]">
                   <Image
                     src={n.image[0]}
                     alt={n.title}
@@ -34,10 +39,7 @@ const Sports = async () => {
                     className="rounded-md"
                   />
                 </div>
-                <h2 className="text-xl font-bold">{n.title}</h2>
-                <p className="hidden lg:block ">{n.description}</p>
               </div>
-            </div>
           </Link>
         ))}
         {/* Last three news items as rows */}

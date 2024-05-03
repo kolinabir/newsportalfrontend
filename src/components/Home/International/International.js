@@ -27,7 +27,7 @@ const International = async () => {
               <div>
                 <h2 className="text-xl font-medium">{n.title}</h2>
               </div>
-              <div className="relative h-24 w-56">
+              <div className="relative h-20 w-28 md:h-24 md:w-32">
                 <Image
                   src={n.image[0]}
                   alt={n.title}
