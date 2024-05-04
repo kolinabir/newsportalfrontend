@@ -2,23 +2,28 @@ import Image from "next/image";
 import Link from "next/link";
 
 const CategoryWiseNews = async ({ params }) => {
-  console.log(params);
-  const data = await fetch("http://localhost:5000/news/category", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      category: params.category,
-    }),
-    next: { revalidate: 1 },
-    cache: 'no-store'
-  });
-  if (!data.ok) {
-    throw new Error(`Failed to fetch data: ${data.status} ${data.statusText}`);
-  }
-  const news = await data.json();
-  console.log(news);
+  // console.log(params);
+  const url = params.category === "allNews"
+  ? "http://localhost:5000/news/"
+  : "http://localhost:5000/news/category";
+
+const method = params.category === "allNews" ? "GET" : "POST";
+
+const data = await fetch(url, {
+  method: method,
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: method === "POST" ? JSON.stringify({ category: params.category }) : null,
+  next: { revalidate: 1 },
+  cache: 'no-store'
+});
+
+if (!data.ok) {
+  throw new Error(`Failed to fetch data: ${data.status} ${data.statusText}`);
+}
+
+const news = await data.json();
 
   return (
     <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-2 p-4">

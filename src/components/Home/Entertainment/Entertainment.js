@@ -7,21 +7,23 @@ const Entertainment = async () => {
   // const news = await data.json();
   // console.log(news.data);
   const data = await fetch("http://localhost:5000/news/category", {
+    next: {
+      revalidate: 1,
+    },
+    cache: "no-store",
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
       category: "research",
-      
     }),
-    
   });
   if (!data.ok) {
     throw new Error(`Failed to fetch data: ${data.status} ${data.statusText}`);
   }
   const news = await data.json();
-  console.log(news);
+  // console.log(news);
 
   return (
     <div className="md:mb-10 ">

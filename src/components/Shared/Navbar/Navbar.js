@@ -17,7 +17,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center py-4 md:py-6">
           <Link href="/" passHref>
             <p className="text-2xl font-semibold text-gray-900 dark:text-white">
-              Search BD Views
+              Search BD News
             </p>
           </Link>
 
@@ -49,10 +49,8 @@ const Navbar = () => {
                 isMenuOpen ? "block" : "hidden"
               } md:flex md:space-x-4 md:items-center md:ml-auto`}
             >
-              <Link href="/news" passHref>
-                <p className="nav-link text-white"></p>
-              </Link>
-              <Link href="/politics" passHref>
+              
+              <Link href="/allNews" passHref>
                 <p className="nav-link text-white">সকল</p>
               </Link>
               <Link href="/economy" passHref>
