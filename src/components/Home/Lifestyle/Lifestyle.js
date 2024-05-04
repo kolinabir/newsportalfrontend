@@ -23,7 +23,7 @@ const Lifestyle = async () => {
             className="bg-white border rounded-lg  p-4 md:col-span-3 flex"
           >
             {/* Image on the left side */}
-            <div className="relative  w-48 lg:h-60 lg:w-[500px] mr-4">
+            <div className="relative h-16 w-16 md:h-60 lg:w-[500px] mr-4">
               <Image
                 src={n.image[0]}
                 alt={n.title}

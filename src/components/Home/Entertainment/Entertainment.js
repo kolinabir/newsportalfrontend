@@ -3,9 +3,25 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Entertainment = async () => {
-  const data = await fetch("http://localhost:5000/news/");
-  const news = await data.json();
+  // const data = await fetch("http://localhost:5000/news/");
+  // const news = await data.json();
   // console.log(news.data);
+  const data = await fetch("http://localhost:5000/news/category", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      category: "research",
+      
+    }),
+    
+  });
+  if (!data.ok) {
+    throw new Error(`Failed to fetch data: ${data.status} ${data.statusText}`);
+  }
+  const news = await data.json();
+  console.log(news);
 
   return (
     <div className="md:mb-10 ">
@@ -23,7 +39,7 @@ const Entertainment = async () => {
               <div>
                 <h2 className="text-xl font-medium">{n.title}</h2>
               </div>
-              <div className="relative lg:h-24 w-56">
+              <div className="relative h-20 w-28 md:h-24 md:w-32">
                 <Image
                   src={n.image[0]}
                   alt={n.title}
@@ -44,7 +60,7 @@ const Entertainment = async () => {
           >
             <div className="flex justify-between">
               <div>
-                <div className="relative lg:h-60 h-48 lg:w-[460px]">
+                <div className="relative lg:h-60 h-48 lg:w-[455px]">
                   <Image
                     src={n.image[0]}
                     alt={n.title}

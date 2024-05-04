@@ -34,7 +34,7 @@ const HeroSection = async () => {
                       </h2>
                       <p className="hidden lg:block">{n.description}</p>
                     </div>
-                    <div className="relative  h-48 lg:w-[700px] lg:h-[228px]">
+                    <div className="relative  h-48 lg:w-[600px] lg:h-[228px]">
                       <Image
                         src={n.image[0]}
                         alt={n.title}
@@ -64,7 +64,7 @@ const HeroSection = async () => {
                         : n.description}
                     </p>
                   </div>
-                  <div className="relative h-16 w-40 lg:h-24 lg:w-52">
+                  <div className="relative h-16 w-40 lg:h-24 lg:w-48">
                     <Image
                       src={n.image[0]}
                       alt={n.title}
