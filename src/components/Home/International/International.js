@@ -3,12 +3,22 @@ import Image from "next/image";
 import Link from "next/link";
 
 const International = async () => {
-  const data = await fetch("http://localhost:5000/news/", {
+  const data = await fetch("http://localhost:5000/news/category", {
     next: {
       revalidate: 1,
     },
     cache: "no-store",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      category: "research",
+    }),
   });
+  if (!data.ok) {
+    throw new Error(`Failed to fetch data: ${data.status} ${data.statusText}`);
+  }
   const news = await data.json();
   // console.log(news.data);
 

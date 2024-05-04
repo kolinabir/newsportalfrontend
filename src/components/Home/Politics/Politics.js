@@ -3,12 +3,22 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Politics = async () => {
-  const data = await fetch("http://localhost:5000/news/", {
+  const data = await fetch("http://localhost:5000/news/category", {
     next: {
       revalidate: 1,
     },
     cache: "no-store",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      category: "research",
+    }),
   });
+  if (!data.ok) {
+    throw new Error(`Failed to fetch data: ${data.status} ${data.statusText}`);
+  }
   const news = await data.json();
   // console.log(news.data);
 
@@ -29,7 +39,7 @@ const Politics = async () => {
                 <div className="flex items-center space-x-4">
                   <div>
                     <h2 className="text-xl font-bold">{n.title}</h2>
-                    <p>{n.description}</p>
+                    <p className="hidden md:block">{n.description}</p>
                   </div>
                 </div>
                 <div className="relative h-16 w-20 md:h-80 md:w-[453px]">

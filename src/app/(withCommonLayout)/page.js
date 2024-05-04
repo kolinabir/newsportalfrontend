@@ -12,7 +12,7 @@ const MainHomePage = () => {
   return (
     <div
       className="
-      container
+      max-w-screen-2xl
      mx-auto
       px-4
       sm:px-6
