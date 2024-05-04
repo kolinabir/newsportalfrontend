@@ -20,7 +20,6 @@ const NationalNews = async () => {
     throw new Error(`Failed to fetch data: ${data.status} ${data.statusText}`);
   }
   const news = await data.json();
-  // console.log(news.data);
 
   return (
     <div className="md:border-b-2   md:border-gray-400 rounded-lg md:mb-10 md:pb-4">
@@ -39,16 +38,15 @@ const NationalNews = async () => {
               href={`news/${n._id}`}
               className="bg-white border-b-2 md:border-r-2 rounded-lg p-4 col-span-4 md:row-span-3 md:col-span-2"
             >
-              <div className="flex justify-between md:flex-col-reverse">
+              <div className="flex gap-3 justify-between flex-col-reverse md:flex-col-reverse">
                 <div className="flex items-center space-x-4">
                   <div>
                     <h2 className="text-xl font-bold">{n.title}</h2>
                     <p>{n.description}</p>
                   </div>
                 </div>
-                <div className="relative h-16 w-20 md:h-80 md:w-[490px]">
+                <div className="relative h-40 w-full md:h-80 md:w-[490px]">
                   <Image
-                  
                     src={n.image[0]}
                     alt={n.title}
                     layout="fill"
