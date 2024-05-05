@@ -35,13 +35,13 @@ const Entertainment = async () => {
           <Link
             key={index}
             href={`news/${n._id}`}
-            className="bg-white border rounded-lg  p-4"
+            className="bg-white border rounded-lg  p-4 hover:scale-105 transition-transform duration-300"
           >
             <div className="flex justify-between">
               <div>
-                <h2 className="text-xl font-medium">{n.title}</h2>
+                <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
               </div>
-              <div className="relative h-20 w-28 md:h-24 md:w-32">
+              <div className="relative h-24 w-[211px] md:h-24 md:w-48">
                 <Image
                   src={n.image[0]}
                   alt={n.title}
@@ -58,7 +58,7 @@ const Entertainment = async () => {
           <Link
             key={index}
             href={`news/${n._id}`}
-            className="bg-white border rounded-lg  p-4 row-span-3"
+            className="bg-white border rounded-lg  p-4 row-span-3 hover:scale-105 transition-transform duration-300"
           >
             <div className="flex justify-between">
               <div>
@@ -71,7 +71,7 @@ const Entertainment = async () => {
                     className="rounded-md"
                   />
                 </div>
-                <h2 className="text-xl font-medium">{n.title}</h2>
+                <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
                 <p>{n.description}</p>
               </div>
             </div>
@@ -81,11 +81,11 @@ const Entertainment = async () => {
           <Link
             key={index}
             href={`news/${n._id}`}
-            className="bg-white border rounded-lg  p-4"
+            className="bg-white border rounded-lg  p-4 hover:scale-105 transition-transform duration-300"
           >
             <div className="flex justify-between">
               <div>
-                <h2 className="text-xl font-medium">{n.title}</h2>
+                <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
               </div>
               <div className="relative h-24 w-56">
                 <Image

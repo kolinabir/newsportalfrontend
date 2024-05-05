@@ -30,19 +30,19 @@ const NationalNews = async () => {
         </h1>
       </div>
       <div className="flex">
-        <div className="grid grid-cols-1 md:pr-4 md:pt-4 lg:grid-cols-4 gap-2">
+        <div className="grid grid-cols-1 md:pr-4 md:pt-4 lg:grid-cols-4 gap-2 ">
           {/* First news item */}
           {news.data.slice(0, 1).map((n, index) => (
             <Link
               key={index}
               href={`news/${n._id}`}
-              className="bg-white border-b-2 md:border-r-2 rounded-lg p-4 col-span-4 md:row-span-3 md:col-span-2"
+              className="bg-white border-b-2 md:border-r-2 rounded-lg p-4 col-span-4 md:row-span-3 md:col-span-2 hover:scale-105 transition-transform duration-300"
             >
               <div className="flex gap-3 justify-between flex-col-reverse md:flex-col-reverse">
                 <div className="flex items-center space-x-4">
                   <div>
-                    <h2 className="text-xl font-bold">{n.title}</h2>
-                    <p>{n.description}</p>
+                    <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
+                    <p className="font-normal">{n.description}</p>
                   </div>
                 </div>
                 <div className="relative h-40 w-full md:h-80 md:w-[490px]">
@@ -62,11 +62,11 @@ const NationalNews = async () => {
             <Link
               key={index}
               href={`news/${n._id}`}
-              className="bg-white border-b-2 rounded-lg  p-4  col-span-4 lg:col-span-2"
+              className="bg-white border-b-2 rounded-lg  p-4  col-span-4 lg:col-span-2 hover:scale-105 transition-transform duration-300"
             >
               <div className="flex justify-between">
                 <div>
-                  <h2 className="text-xl font-medium">{n.title}</h2>
+                  <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
                 </div>
                 <div className="relative h-16 w-40">
                   <Image
@@ -87,11 +87,11 @@ const NationalNews = async () => {
               <Link
                 key={index}
                 href={`news/${n._id}`}
-                className="hidden lg:block bg-white rounded-lg border-b-2 p-4 w-96 h-36 ml-2 mb-2"
+                className="hidden lg:block bg-white rounded-lg border-b-2 p-4 w-96 h-36 ml-2 mb-2 hover:scale-105 transition-transform duration-300"
               >
                 <div className="flex">
                   <div>
-                    <h2 className="text-xl font-medium">{n.title}</h2>
+                    <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
                   </div>
                   <div className="relative h-24 w-48">
                     <Image

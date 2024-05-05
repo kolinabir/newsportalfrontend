@@ -25,7 +25,7 @@ const Politics = async () => {
   return (
     <div className="md:mb-10 ">
       <h1 className="text-2xl md:mb-4 font-bold">Politics News</h1>
-      <hr />
+      
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
         {/* First news item */}
@@ -33,25 +33,25 @@ const Politics = async () => {
           <Link
             key={index}
             href={`news/${n._id}`}
-            className="bg-white border rounded-lg  p-4 row-span-3"
+            className="bg-white border rounded-lg  p-4 row-span-3 hover:scale-105 transition-transform duration-300"
           >
-            <div className="flex justify-between md:flex-col-reverse">
-                <div className="flex items-center space-x-4">
-                  <div>
-                    <h2 className="text-xl font-bold">{n.title}</h2>
-                    <p className="hidden md:block">{n.description}</p>
-                  </div>
-                </div>
-                <div className="relative h-16 w-20 md:h-80 md:w-[453px]">
-                  <Image
-                    src={n.image[0]}
-                    alt={n.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-md"
-                  />
+            <div className="flex gap-3 justify-between flex-col-reverse md:flex-col-reverse">
+              <div className="flex items-center space-x-4">
+                <div>
+                  <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
+                  <p>{n.description}</p>
                 </div>
               </div>
+              <div className="relative h-40 w-full md:h-80 md:w-[450px]">
+                <Image
+                  src={n.image[0]}
+                  alt={n.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-md"
+                />
+              </div>
+            </div>
           </Link>
         ))}
         {/* Last three news items as rows */}
@@ -59,11 +59,11 @@ const Politics = async () => {
           <Link
             key={index}
             href={`news/${n._id}`}
-            className="bg-white border rounded-lg  p-4"
+            className="bg-white border rounded-lg  p-4 hover:scale-105 transition-transform duration-300"
           >
             <div className="flex justify-between">
               <div>
-                <h2 className="text-xl font-medium">{n.title}</h2>
+                <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
               </div>
               <div className="relative h-20 w-40">
                 <Image
@@ -81,11 +81,11 @@ const Politics = async () => {
           <Link
             key={index}
             href={`news/${n._id}`}
-            className="bg-white border rounded-lg  p-4"
+            className="bg-white border rounded-lg  p-4  hover:scale-105 transition-transform duration-300"
           >
             <div className="flex justify-between">
               <div>
-                <h2 className="text-xl font-medium">{n.title}</h2>
+                <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
               </div>
               <div className="relative h-20 w-40">
                 <Image
