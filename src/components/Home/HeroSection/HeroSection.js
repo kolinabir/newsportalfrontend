@@ -24,12 +24,12 @@ const HeroSection = async () => {
               <Link
                 key={index}
                 href={`news/${n._id}`}
-                className="bg-white rounded-lg border  lg:h-[258px] lg:p-4 lg:col-span-12"
+                className="bg-white rounded-lg border lg:h-[258px] lg:p-4 lg:col-span-12 hover:scale-105 transition-transform duration-300"
               >
                 <div key={index}>
                   <div className="flex flex-col-reverse p-2 lg:p-0  lg:flex-row justify-between">
                     <div>
-                      <h2 className="lg:text-4xl text-2xl font-bold">
+                      <h2 className="lg:text-3xl text-2xl font-medium hover:text-blue-500 transition-colors duration-300">
                         {n.title}
                       </h2>
                       <p className="hidden lg:block">{n.description}</p>
@@ -52,11 +52,11 @@ const HeroSection = async () => {
               <Link
                 key={index}
                 href={`news/${n._id}`}
-                className="bg-white rounded-lg border lg:h-[136px] lg:p-4 p-2 lg:col-span-6"
+                className="bg-white rounded-lg border lg:h-[136px] lg:p-4 p-2 lg:col-span-6 hover:scale-105 transition-transform duration-300"
               >
                 <div className="flex  justify-between">
                   <div>
-                    <h2 className="text-xl font-medium">{n.title}</h2>
+                    <h2 className="text-2xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
                     <p className="hidden lg:block">
                       {n.description.split(" ").length > 5
                         ? n.description.split(" ").slice(0, 10).join(" ") +
@@ -81,13 +81,13 @@ const HeroSection = async () => {
               <Link
                 key={index}
                 href={`news/${n._id}`}
-                className="bg-white rounded-lg border lg:h-[118px] md:p-4 p-2 md:col-span-4"
+                className="bg-white rounded-lg border lg:h-[118px] md:p-4 p-2 md:col-span-4 hover:scale-105 transition-transform duration-300"
               >
                 <div className="flex justify-between">
                   <div>
-                    <h2 className="text-xl font-medium">{n.title}</h2>
+                    <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
                   </div>
-                  <div className="relative h-16 w-40 lg:h-24 lg:w-56">
+                  <div className="relative h-16 w-40 lg:h-24 lg:w-56 ">
                     <Image
                       src={n.image[0]}
                       alt={n.title}
