@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 import React from "react";
 
@@ -46,7 +46,7 @@ const NationalNews = async () => {
                   </div>
                 </div>
                 <div className="relative h-40 w-full md:h-80 md:w-[490px]">
-                  <Image
+                  <ExportedImage
                     src={n.image[0]}
                     alt={n.title}
                     layout="fill"
@@ -69,7 +69,7 @@ const NationalNews = async () => {
                   <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
                 </div>
                 <div className="relative h-16 w-40">
-                  <Image
+                  <ExportedImage
                     src={n.image[0]}
                     alt={n.title}
                     layout="fill"
@@ -94,7 +94,7 @@ const NationalNews = async () => {
                     <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
                   </div>
                   <div className="relative h-24 w-48">
-                    <Image
+                    <ExportedImage
                       src={n.image[0]}
                       alt={n.title}
                       layout="fill"

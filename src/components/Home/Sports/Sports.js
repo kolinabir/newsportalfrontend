@@ -1,6 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import ExportedImage from "next-image-export-optimizer";
 
 const Sports = async () => {
   const data = await fetch("http://localhost:5000/news/category", {
@@ -41,7 +41,7 @@ const Sports = async () => {
                   </div>
                 </div>
                 <div className="relative h-40 w-full md:h-80 md:w-[450px]">
-                  <Image
+                  <ExportedImage
                     src={n.image[0]}
                     alt={n.title}
                     layout="fill"
@@ -64,7 +64,7 @@ const Sports = async () => {
                 <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
               </div>
               <div className="relative h-20 w-40">
-                <Image
+                <ExportedImage
                   src={n.image[0]}
                   alt={n.title}
                   layout="fill"
@@ -86,7 +86,7 @@ const Sports = async () => {
                 <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
               </div>
               <div className="relative h-20 w-40">
-                <Image
+                <ExportedImage
                   src={n.image[0]}
                   alt={n.title}
                   layout="fill"

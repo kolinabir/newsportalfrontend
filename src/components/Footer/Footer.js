@@ -1,3 +1,4 @@
+import ExportedImage from "next-image-export-optimizer";
 import React from "react";
 
 const Footer = () => {
@@ -9,7 +10,7 @@ const Footer = () => {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
               <a href="https://flowbite.com/" className="flex items-center">
-                  <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 me-3" alt="FlowBite Logo" />
+                  <ExportedImage width={8} height={8} src="https://flowbite.com/docs/images/logo.svg" className="h-8 me-3" alt="FlowBite Logo" />
                   <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Search BD News</span>
               </a>
           </div>
