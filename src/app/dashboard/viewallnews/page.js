@@ -1,16 +1,11 @@
 import React from "react";
 
 const viewAllNews = async () => {
-  const data = await fetch(
-    "http://localhost:5000/news/",
-
-    {
-      next: {
-        revalidate: 1,
-      },
-      cache: "no-store",
-    }
-  );
+  const data = await fetch("https://server.searchbdnews.com/news", {
+    next: {
+      revalidate: 1,
+    },
+  });
   const news = await data.json();
 
   return (

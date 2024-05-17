@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Image from "next/image";
-import { headers } from "../../../../next.config";
 
 const CreateNewNews = () => {
   const [title, setTitle] = useState("");
@@ -117,10 +116,9 @@ const CreateNewNews = () => {
       };
 
       try {
-        console.log(newsData);
         //post authorizing with headers
         const response = await axios.post(
-          "http://localhost:5000/news/",
+          "https://server.searchbdnews.com/news/",
           newsData,
           {
             headers: {

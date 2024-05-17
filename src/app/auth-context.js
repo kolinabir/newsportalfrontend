@@ -14,11 +14,14 @@ export const AuthProvider = ({ children }) => {
     const checkAuthentication = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:5000/auth/check-auth", {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        });
+        const response = await fetch(
+          "https://server.searchbdnews.com/auth/check-auth",
+          {
+            headers: {
+              Authorization: localStorage.getItem("token"),
+            },
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();
@@ -43,11 +46,14 @@ export const AuthProvider = ({ children }) => {
   const signIn = async (userId, password) => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, password }),
-      });
+      const response = await fetch(
+        "https://server.searchbdnews.com/auth/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId, password }),
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.data.token);

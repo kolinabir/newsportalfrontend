@@ -1,11 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { viewAllNews } from "@/lib/newsApi/viewSingleNews";
-import React from "react";
+
+export async function generateStaticParams() {
+  const data = await fetch("https://server.searchbdnews.com/news");
+  const news = await data.json();
+  return news.data.map((newsItem) => ({
+    newsID: newsItem._id,
+  }));
+}
 
 const SingleNewsDetails = async ({ params }) => {
   const news = await viewAllNews(params.newsID);
-
   if (!news) {
     return <div>Loading...</div>;
   }
@@ -71,9 +77,9 @@ const SingleNewsDetails = async ({ params }) => {
         {news.body.slice(4).map((item, index) => (
           <p key={index} className="mb-4">
             {item.para.split("\n").map((text, i) => (
-              <React.Fragment key={i}>
-                {i > 0 && <br />} {text}
-              </React.Fragment>
+              <span key={i} className="block mb-2">
+                {text}
+              </span>
             ))}
           </p>
         ))}
@@ -92,12 +98,3 @@ const SingleNewsDetails = async ({ params }) => {
 };
 
 export default SingleNewsDetails;
-
-export async function generateStaticParams() {
-  const url = "http://localhost:5000/news";
-  const data = await fetch(url);
-  const news = await data.json();
-  return news.map((newsItem) => ({
-    params: { newsID: newsItem._id },
-  }));
-}

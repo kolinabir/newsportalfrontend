@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const AllNews = async ({ params }) => {
-  const data = await fetch("http://localhost:5000/news/");
+  const data = await fetch("https://server.searchbdnews.com/news/");
 
   if (!data.ok) {
     throw new Error(`Failed to fetch data: ${data.status} ${data.statusText}`);

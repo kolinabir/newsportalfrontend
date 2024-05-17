@@ -3,11 +3,10 @@ import Link from "next/link";
 
 const HeroSection = async () => {
   const data = await fetch(
-    "http://localhost:5000/news/",
-
+    "https://server.searchbdnews.com/news/category/research",
     {
       next: {
-        revalidate: 1,
+        revalidate: 10,
       },
     }
   );
