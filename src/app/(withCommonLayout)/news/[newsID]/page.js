@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { viewAllNews } from "@/lib/newsApi/viewSingleNews";
+import ExportedImage from "next-image-export-optimizer";
 
 export async function generateStaticParams() {
   const data = await fetch("https://server.searchbdnews.com/news");
@@ -25,7 +25,7 @@ const SingleNewsDetails = async ({ params }) => {
       </p>
       {news.image && news.image[0] && (
         <div className="relative h-96 mb-8">
-          <Image
+          <ExportedImage
             src={news.image[0] || ""}
             alt={news.title}
             layout="fill"
@@ -46,7 +46,7 @@ const SingleNewsDetails = async ({ params }) => {
       </div>
       {news.image && news.image[1] && (
         <div className="relative h-96 mb-8">
-          <Image
+          <ExportedImage
             src={news.image[1] || ""}
             alt={news.title}
             layout="fill"
@@ -64,7 +64,7 @@ const SingleNewsDetails = async ({ params }) => {
       </div>
       {news.image && news.image[2] && (
         <div className="relative h-96 mb-8">
-          <Image
+          <ExportedImage
             src={news.image[2] || ""}
             alt={news.title}
             layout="fill"

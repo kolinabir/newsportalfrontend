@@ -1,5 +1,6 @@
 // This file is created by the command: nx generate @nrwl/next:page withCommonLayout/[category]
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
+
 import Link from "next/link";
 
 const AllNews = async ({ params }) => {
@@ -28,7 +29,7 @@ const AllNews = async ({ params }) => {
                 <p className="mb-4">{newsItem.description}</p>
               </div>
               <div className="w-full lg:w-1/4 relative h-40">
-                <Image
+                <ExportedImage
                   src={newsItem.image[0]}
                   alt={newsItem.title}
                   layout="fill"

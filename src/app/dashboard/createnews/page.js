@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
-import Image from "next/image";
+
+import ExportedImage from "next-image-export-optimizer";
 
 const CreateNewNews = () => {
   const [title, setTitle] = useState("");
@@ -276,7 +277,7 @@ const CreateNewNews = () => {
               <div className="flex flex-wrap">
                 {selectedImages.map((image, index) => (
                   <div key={index} className="relative mr-2 mb-2">
-                    <Image
+                    <ExportedImage
                       width={80}
                       height={80}
                       src={image}

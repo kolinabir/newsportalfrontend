@@ -1,6 +1,7 @@
 import React from "react";
-import Image from "next/image";
+
 import Link from "next/link";
+import ExportedImage from "next-image-export-optimizer";
 
 const Lifestyle = async () => {
   // const data = await fetch("https://server.searchbdnews.com/news/", {
@@ -36,7 +37,7 @@ const Lifestyle = async () => {
           >
             {/* Image on the left side */}
             <div className="relative h-16 w-16 md:h-60 lg:w-[500px] mr-4">
-              <Image
+              <ExportedImage
                 src={n.image[0]}
                 alt={n.title}
                 layout="fill"
@@ -63,7 +64,7 @@ const Lifestyle = async () => {
           >
             <div className="flex lg:flex-col">
               <div className="relative w-28 h-16 md:w-full object-cover md:h-40 ">
-                <Image
+                <ExportedImage
                   src={n.image[0]}
                   alt={n.title}
                   layout="fill"

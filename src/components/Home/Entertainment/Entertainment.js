@@ -1,6 +1,7 @@
 import React from "react";
-import Image from "next/image";
+
 import Link from "next/link";
+import ExportedImage from "next-image-export-optimizer";
 
 const Entertainment = async () => {
   // const data = await fetch("https://server.searchbdnews.com/news/");
@@ -35,7 +36,7 @@ const Entertainment = async () => {
                 </h2>
               </div>
               <div className="relative h-24 w-[211px] md:h-24 md:w-48">
-                <Image
+                <ExportedImage
                   src={n.image[0]}
                   alt={n.title}
                   layout="fill"
@@ -56,7 +57,7 @@ const Entertainment = async () => {
             <div className="flex justify-between">
               <div>
                 <div className="relative lg:h-60 h-48 lg:w-[455px]">
-                  <Image
+                  <ExportedImage
                     src={n.image[0]}
                     alt={n.title}
                     layout="fill"
@@ -85,7 +86,7 @@ const Entertainment = async () => {
                 </h2>
               </div>
               <div className="relative h-24 w-56">
-                <Image
+                <ExportedImage
                   src={n.image[0]}
                   alt={n.title}
                   layout="fill"

@@ -1,4 +1,5 @@
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
+
 import Link from "next/link";
 
 const HeroSection = async () => {
@@ -33,7 +34,7 @@ const HeroSection = async () => {
                       <p className="hidden lg:block">{n.description}</p>
                     </div>
                     <div className="relative  h-48 lg:w-[600px] lg:h-[228px]">
-                      <Image
+                      <ExportedImage
                         src={n.image[0]}
                         alt={n.title}
                         layout="fill"
@@ -65,7 +66,7 @@ const HeroSection = async () => {
                     </p>
                   </div>
                   <div className="relative h-16 w-40 lg:h-24 lg:w-48">
-                    <Image
+                    <ExportedImage
                       src={n.image[0]}
                       alt={n.title}
                       layout="fill"
@@ -90,7 +91,7 @@ const HeroSection = async () => {
                     </h2>
                   </div>
                   <div className="relative h-16 w-40 lg:h-24 lg:w-56 ">
-                    <Image
+                    <ExportedImage
                       src={n.image[0]}
                       alt={n.title}
                       layout="fill"
