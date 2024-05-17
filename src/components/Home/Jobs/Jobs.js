@@ -1,7 +1,6 @@
 import React from "react";
-
+import Image from "next/image";
 import Link from "next/link";
-import ExportedImage from "next-image-export-optimizer";
 
 const Jobs = async () => {
   const data = await fetch(
@@ -40,7 +39,7 @@ const Jobs = async () => {
                 </div>
               </div>
               <div className="relative h-40 w-full md:h-80 md:w-[450px]">
-                <ExportedImage
+                <Image
                   src={n.image[0]}
                   alt={n.title}
                   layout="fill"
@@ -65,7 +64,7 @@ const Jobs = async () => {
                 </h2>
               </div>
               <div className="relative h-20 w-40">
-                <ExportedImage
+                <Image
                   src={n.image[0]}
                   alt={n.title}
                   layout="fill"
@@ -89,7 +88,7 @@ const Jobs = async () => {
                 </h2>
               </div>
               <div className="relative h-20 w-40">
-                <ExportedImage
+                <Image
                   src={n.image[0]}
                   alt={n.title}
                   layout="fill"

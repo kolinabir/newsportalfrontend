@@ -1,5 +1,4 @@
-import ExportedImage from "next-image-export-optimizer";
-
+import Image from "next/image";
 import Link from "next/link";
 
 const NationalNews = async () => {
@@ -40,7 +39,7 @@ const NationalNews = async () => {
                   </div>
                 </div>
                 <div className="relative h-40 w-full md:h-80 md:w-[490px]">
-                  <ExportedImage
+                  <Image
                     src={n.image[0]}
                     alt={n.title}
                     layout="fill"
@@ -65,7 +64,7 @@ const NationalNews = async () => {
                   </h2>
                 </div>
                 <div className="relative h-16 w-40">
-                  <ExportedImage
+                  <Image
                     src={n.image[0]}
                     alt={n.title}
                     layout="fill"
@@ -92,7 +91,7 @@ const NationalNews = async () => {
                     </h2>
                   </div>
                   <div className="relative h-24 w-48">
-                    <ExportedImage
+                    <Image
                       src={n.image[0]}
                       alt={n.title}
                       layout="fill"

@@ -1,7 +1,6 @@
 import React from "react";
-
+import Image from "next/image";
 import Link from "next/link";
-import ExportedImage from "next-image-export-optimizer";
 
 const International = async () => {
   const data = await fetch(
@@ -36,7 +35,7 @@ const International = async () => {
                 </h2>
               </div>
               <div className="relative h-24 w-[211px] md:h-24 md:w-48">
-                <ExportedImage
+                <Image
                   src={n.image[0]}
                   alt={n.title}
                   layout="fill"
@@ -57,7 +56,7 @@ const International = async () => {
             <div className="flex justify-between">
               <div>
                 <div className="relative lg:h-60 h-48 lg:w-[455px]">
-                  <ExportedImage
+                  <Image
                     src={n.image[0]}
                     alt={n.title}
                     layout="fill"
@@ -86,7 +85,7 @@ const International = async () => {
                 </h2>
               </div>
               <div className="relative h-24 w-56">
-                <ExportedImage
+                <Image
                   src={n.image[0]}
                   alt={n.title}
                   layout="fill"
