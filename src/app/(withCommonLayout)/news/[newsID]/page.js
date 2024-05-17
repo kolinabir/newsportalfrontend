@@ -92,3 +92,12 @@ const SingleNewsDetails = async ({ params }) => {
 };
 
 export default SingleNewsDetails;
+
+export async function generateStaticParams() {
+  const url = "http://localhost:5000/news";
+  const data = await fetch(url);
+  const news = await data.json();
+  return news.map((newsItem) => ({
+    params: { newsID: newsItem._id },
+  }));
+}

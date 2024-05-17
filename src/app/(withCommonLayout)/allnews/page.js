@@ -2,10 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const CategoryWiseNews = async ({ params }) => {
-  const data = await fetch(
-    `http://localhost:5000/news/category/${params.category}`
-  );
+const AllNews = async ({ params }) => {
+  const data = await fetch("http://localhost:5000/news/");
 
   if (!data.ok) {
     throw new Error(`Failed to fetch data: ${data.status} ${data.statusText}`);
@@ -46,4 +44,4 @@ const CategoryWiseNews = async ({ params }) => {
   );
 };
 
-export default CategoryWiseNews;
+export default AllNews;

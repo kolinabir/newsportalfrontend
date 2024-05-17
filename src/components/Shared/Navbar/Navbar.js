@@ -24,7 +24,7 @@ const Navbar = () => {
             <div
               className={`hidden md:flex md:space-x-4 md:items-center md:ml-auto`}
             >
-              <Link href="/allNews" passHref>
+              <Link href="/allnews" passHref>
                 <p className="nav-link text-black">সকল</p>
               </Link>
               <Link href="/economy" passHref>

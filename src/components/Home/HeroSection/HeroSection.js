@@ -9,7 +9,6 @@ const HeroSection = async () => {
       next: {
         revalidate: 1,
       },
-      cache: "no-store",
     }
   );
   const news = await data.json();
@@ -56,7 +55,9 @@ const HeroSection = async () => {
               >
                 <div className="flex  justify-between">
                   <div>
-                    <h2 className="text-2xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
+                    <h2 className="text-2xl font-medium hover:text-blue-500 transition-colors duration-300">
+                      {n.title}
+                    </h2>
                     <p className="hidden lg:block">
                       {n.description.split(" ").length > 5
                         ? n.description.split(" ").slice(0, 10).join(" ") +
@@ -85,7 +86,9 @@ const HeroSection = async () => {
               >
                 <div className="flex justify-between">
                   <div>
-                    <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">{n.title}</h2>
+                    <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">
+                      {n.title}
+                    </h2>
                   </div>
                   <div className="relative h-16 w-40 lg:h-24 lg:w-56 ">
                     <Image
