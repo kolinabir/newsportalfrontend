@@ -6,7 +6,7 @@ const NationalNews = async () => {
     "https://server.searchbdnews.com/news/category/research",
     {
       next: {
-        revalidate: 10,
+        revalidate: 100,
       },
     }
   );

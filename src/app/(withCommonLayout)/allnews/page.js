@@ -2,8 +2,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const AllNews = async ({ params }) => {
-  const data = await fetch("https://server.searchbdnews.com/news/");
+const AllNews = async () => {
+  const data = await fetch("https://server.searchbdnews.com/news/", {
+    next: {
+      revalidate: 1,
+    },
+  });
 
   if (!data.ok) {
     throw new Error(`Failed to fetch data: ${data.status} ${data.statusText}`);

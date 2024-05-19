@@ -7,7 +7,12 @@ const Entertainment = async () => {
   // const news = await data.json();
   // console.log(news.data);
   const data = await fetch(
-    "https://server.searchbdnews.com/news/category/research"
+    "https://server.searchbdnews.com/news/category/research",
+    {
+      next: {
+        revalidate: 100,
+      },
+    }
   );
 
   if (!data.ok) {

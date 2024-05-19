@@ -1,6 +1,8 @@
-const loading = () => {
+import React from "react";
+
+const CateogoryLoader = () => {
   return (
-    <div className="max-w-6xl mx-auto px-4 lg:px-0">
+    <div className="max-w-6xl mx-auto">
       <div className="animate-pulse flex space-x-4">
         <div className="rounded-full bg-gray-300 h-12 w-12"></div>
         <div className="flex-1 space-y-4 py-1">
@@ -15,4 +17,4 @@ const loading = () => {
   );
 };
 
-export default loading;
+export default CateogoryLoader;

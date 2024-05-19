@@ -1,5 +1,3 @@
-import React from "react";
-
 const viewAllNews = async () => {
   const data = await fetch("https://server.searchbdnews.com/news", {
     next: {
