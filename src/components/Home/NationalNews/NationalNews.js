@@ -13,7 +13,7 @@ const NationalNews = async () => {
   const news = await data.json();
 
   return (
-    <div className="md:border-b-2   md:border-gray-400 rounded-lg md:mb-10 md:pb-4">
+    <div className=" md:border-gray-400 rounded-lg md:mb-10 md:pb-4">
       <div className="md:grid md:grid-cols-10">
         <h1 className="text-xl font-bold md:mb-4 col-span-7">National News</h1>
         <h1 className="text-xl hidden lg:block font-bold ml-14 col-span-3">
@@ -29,7 +29,7 @@ const NationalNews = async () => {
               href={`news/${n._id}`}
               className="bg-white border-b-2 md:border-r-2 rounded-lg p-4 col-span-4 md:row-span-3 md:col-span-2 hover:scale-105 transition-transform duration-300"
             >
-              <div className="flex gap-3 justify-between flex-col-reverse md:flex-col-reverse">
+              <div className="flex justify-between flex-col-reverse md:flex-col-reverse">
                 <div className="flex items-center space-x-4">
                   <div>
                     <h2 className="text-xl font-medium hover:text-blue-500 transition-colors duration-300">
@@ -38,11 +38,13 @@ const NationalNews = async () => {
                     <p className="font-normal">{n.description}</p>
                   </div>
                 </div>
-                <div className="relative h-40 w-full md:h-80 md:w-[490px]">
+                <div className="relative">
                   <Image
                     src={n.image[0]}
                     alt={n.title}
-                    layout="fill"
+                    height={280}
+                    width={480}
+                    // layout="fill"
                     objectFit="cover"
                     className="rounded-md"
                   />
@@ -63,11 +65,13 @@ const NationalNews = async () => {
                     {n.title}
                   </h2>
                 </div>
-                <div className="relative h-16 w-40">
+                <div className="relative">
                   <Image
                     src={n.image[0]}
                     alt={n.title}
-                    layout="fill"
+                    height={100}
+                    width={200}
+                    // layout="fill"
                     objectFit="cover"
                     className="rounded-md"
                   />
@@ -90,11 +94,13 @@ const NationalNews = async () => {
                       {n.title}
                     </h2>
                   </div>
-                  <div className="relative h-24 w-48">
+                  <div className="relative">
                     <Image
                       src={n.image[0]}
-                      alt={n.title}
-                      layout="fill"
+                      alt={n.title}height={100}
+                      width={200}
+
+                      // layout="fill"
                       objectFit="cover"
                       className="rounded-md"
                     />

@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { viewAllNews } from "@/lib/newsApi/viewSingleNews";
+import { FaCopy, FaShareAlt, FaPrint } from "react-icons/fa";
 
 export async function generateStaticParams() {
   const data = await fetch("https://server.searchbdnews.com/news");
   const news = await data.json();
-  return news.data.map((newsItem) => ({
-    newsID: newsItem._id,
-  }));
+  return news.data.map((newsItem) => ({ newsID: newsItem._id }));
 }
 
 const SingleNewsDetails = async ({ params }) => {
@@ -16,13 +15,43 @@ const SingleNewsDetails = async ({ params }) => {
     return <div>Loading...</div>;
   }
 
+  const publishedAtBangla = new Date(news.createdAt).toLocaleString("bn-BD", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+  });
+
   return (
     <div className="max-w-6xl mx-auto px-4 lg:px-0">
-      <h1 className="text-3xl font-bold mb-4">{news.title}</h1>
-      <div className="border-b border-gray-400 mb-4"></div>
-      <p className="text-sm text-gray-500 mb-4">
-        Published at: {new Date(news.createdAt).toLocaleString()}
-      </p>
+      <div className="flex justify-between mb-4">
+        <div>
+          <h1 className="text-3xl font-bold mb-4">{news.title}</h1>
+          <div className="border-b border-gray-400 mb-4"></div>
+          <p className="text-sm text-gray-500 mb-4">{publishedAtBangla}</p>
+          <div className="flex justify-between">
+          <div>
+            
+            {news.author && (
+              <p className="text-sm text-gray-500 mb-4">লেখক: {news.author}</p>
+            )} <div className="flex space-x-2">
+            <button className="text-gray-500 hover:text-gray-700" title="Copy">
+              <FaCopy />
+            </button>
+            <button className="text-gray-500 hover:text-gray-700" title="Share">
+              <FaShareAlt />
+            </button>
+            <button className="text-gray-500 hover:text-gray-700" title="Print">
+              <FaPrint />
+            </button>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
       {news.image && news.image[0] && (
         <div className="relative h-96 mb-8">
           <Image
@@ -92,6 +121,7 @@ const SingleNewsDetails = async ({ params }) => {
             </p>
           </Link>
         ))}
+        
       </div>
     </div>
   );
