@@ -1,19 +1,38 @@
-// This file is created by the command: nx generate @nrwl/next:page withCommonLayout/[category]
+import ErrorReloadButton from "@/components/ErrorReloadButton/ErrorReloadButton";
 import Image from "next/image";
 import Link from "next/link";
 
 const AllNews = async () => {
-  const data = await fetch("https://server.searchbdnews.com/news/", {
-    next: {
-      revalidate: 1,
-    },
-  });
-
-  if (!data.ok) {
-    throw new Error(`Failed to fetch data: ${data.status} ${data.statusText}`);
+  let data = null;
+  try {
+    data = await fetch("https://server.searchbdnews.com/news", {
+      next: {
+        revalidate: 1,
+      },
+      priority: true,
+    });
+  } catch (error) {
+    return <ErrorReloadButton></ErrorReloadButton>;
   }
 
   const news = await data.json();
+
+  if (!news) {
+    return (
+      <div className="max-w-6xl mx-auto">
+        <div className="animate-pulse flex space-x-4">
+          <div className="rounded-full bg-gray-300 h-12 w-12"></div>
+          <div className="flex-1 space-y-4 py-1">
+            <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+            <div className="space-y-2">
+              <div className="h-4 bg-gray-300 rounded"></div>
+              <div className="h-4 bg-gray-300 rounded w-5/6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-2 p-4">
