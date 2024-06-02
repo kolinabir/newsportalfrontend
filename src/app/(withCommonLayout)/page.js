@@ -19,14 +19,16 @@ const MainHomePage = () => {
       lg:px-8"
     >
       <HeroSection></HeroSection>
-      <NationalNews></NationalNews>
-      <Sports></Sports>
-      <International></International>
-      <Politics></Politics>
-      <Entertainment></Entertainment>
-      <Jobs></Jobs>
-      <Lifestyle></Lifestyle>
-      <Religion></Religion>
+      <div className="">
+        <NationalNews></NationalNews>
+        <International></International>
+        <Politics></Politics>
+        <Sports></Sports>
+        <Entertainment></Entertainment>
+        <Jobs></Jobs>
+        <Lifestyle></Lifestyle>
+        <Religion></Religion>
+      </div>
     </div>
   );
 };

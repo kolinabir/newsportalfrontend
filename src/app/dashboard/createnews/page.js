@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Image from "next/image";
+import CopyButton from "@/components/Buttons/CopyButton";
 
 const CreateNewNews = () => {
   const [title, setTitle] = useState("");
@@ -15,6 +16,7 @@ const CreateNewNews = () => {
   const [isPublished, setIsPublished] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [availableCategories, setAvailableCategories] = useState([]); // Add available categories here
 
   const handleImageUpload = (e) => {
     const files = e.target.files;
@@ -24,7 +26,18 @@ const CreateNewNews = () => {
     setSelectedImages((prevImages) => [...prevImages, ...uploadedImages]);
     e.target.value = null; // Clear the value of the file input
   };
-
+  const getAvailableCategories = async () => {
+    try {
+      const response = await axios.get(
+        "https://server.searchbdnews.com/news/getAllCategories"
+      );
+      setAvailableCategories(response.data.data);
+      console.log("Available categories:", response.data.data);
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    }
+  };
+  getAvailableCategories();
   const handleCancelImage = (index) => {
     setSelectedImages((prevImages) => {
       const updatedImages = [...prevImages];
@@ -126,9 +139,13 @@ const CreateNewNews = () => {
             },
           }
         );
+        if (response.success) {
+          alert("News posted successfully");
+        }
 
         if (response.success === false) {
           setError(response.message);
+          alert("News post failed");
         } else {
           setTitle("");
           setHeadline("");
@@ -230,6 +247,20 @@ const CreateNewNews = () => {
         </div>
         <div className="mb-4">
           <label className="block font-bold mb-2">Categories</label>
+          {/* availableCategories is an array of objects with category key */}
+          <h1>Already Available Categories:</h1>
+          <div className="grid grid-cols-7 gap-1 text-sm">
+            {availableCategories.map((category, index) => (
+              <div key={index} className="mb-2 flex items-center">
+                <h1
+                  className=" text-center pb-1 text-gray-800 bg-gray-200 rounded-md px-2 py-1 hover:bg-gray-300 cursor-pointer
+                "
+                >
+                  {category}
+                </h1>
+              </div>
+            ))}
+          </div>
           {categories.map((category, index) => (
             <div key={index} className="mb-2 flex items-center">
               <input

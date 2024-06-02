@@ -3,9 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Entertainment = async () => {
-  // const data = await fetch("https://server.searchbdnews.com/news/");
-  // const news = await data.json();
-  // console.log(news.data);
   const data = await fetch(
     "https://server.searchbdnews.com/news/category/research",
     {

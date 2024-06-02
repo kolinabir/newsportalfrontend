@@ -4,10 +4,10 @@ import Link from "next/link";
 
 const Sports = async () => {
   const data = await fetch(
-    "https://server.searchbdnews.com/news/category/research",
+    "https://server.searchbdnews.com/news/category/sports",
     {
       next: {
-        revalidate: 100,
+        revalidate: 1,
       },
     }
   );

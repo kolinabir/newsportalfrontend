@@ -2,18 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 const HeroSection = async () => {
-  const data = await fetch(
-    "https://server.searchbdnews.com/news/category/research",
-    {
-      next: {
-        revalidate: 100,
-      },
-    }
-  );
+  const data = await fetch("https://server.searchbdnews.com/news", {
+    next: {
+      revalidate: 0,
+    },
+  });
   const news = await data.json();
 
   return (
-    <div className="lg:flex md:mb-10 lg:items-center">
+    <div className="lg:flex md:mb-10 lg:items-center justify-center">
       <div className="flex-1">
         <div className="container md:mx-20 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-2">

@@ -7,7 +7,7 @@ const International = async () => {
     "https://server.searchbdnews.com/news/category/research",
     {
       next: {
-        revalidate: 100,
+        revalidate: 1,
       },
     }
   );

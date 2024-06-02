@@ -2,6 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { viewAllNews } from "@/lib/newsApi/viewSingleNews";
 import { FaCopy, FaShareAlt, FaPrint } from "react-icons/fa";
+import CopyButton from "@/components/Buttons/CopyButton";
+import { FacebookShareButton } from "react-share";
+import ShareButton from "@/components/Buttons/ShareButton";
+import PrintButton from "@/components/Buttons/PrintButton";
 
 export async function generateStaticParams() {
   const data = await fetch("https://server.searchbdnews.com/news");
@@ -26,29 +30,30 @@ const SingleNewsDetails = async ({ params }) => {
   });
 
   return (
-    <div className="max-w-6xl mx-auto px-4 lg:px-0">
+    <div className="max-w-6xl mx-auto px-4 lg:px-0 mt-2">
       <div className="flex justify-between mb-4">
         <div>
           <h1 className="text-3xl font-bold mb-4">{news.title}</h1>
           <div className="border-b border-gray-400 mb-4"></div>
           <p className="text-sm text-gray-500 mb-4">{publishedAtBangla}</p>
           <div className="flex justify-between">
-          <div>
-            
-            {news.author && (
-              <p className="text-sm text-gray-500 mb-4">লেখক: {news.author}</p>
-            )} <div className="flex space-x-2">
-            <button className="text-gray-500 hover:text-gray-700" title="Copy">
-              <FaCopy />
-            </button>
-            <button className="text-gray-500 hover:text-gray-700" title="Share">
-              <FaShareAlt />
-            </button>
-            <button className="text-gray-500 hover:text-gray-700" title="Print">
-              <FaPrint />
-            </button>
-          </div>
-          </div>
+            <div>
+              {news.author && (
+                <p className="text-sm text-gray-500 mb-4">
+                  লেখক: {news.author}
+                </p>
+              )}{" "}
+              <div className="flex space-x-2">
+                <CopyButton
+                  link={`https://searchbdnews.com/news/${news._id}`}
+                />
+                <ShareButton
+                  link={`https://searchbdnews.com/news/${news._id}`}
+                />
+
+                <PrintButton></PrintButton>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -115,13 +120,15 @@ const SingleNewsDetails = async ({ params }) => {
       </div>
       <div className="mb-2">
         {news.categories.map((category, index) => (
-          <Link href={`/categories/${category}`} key={index}>
-            <p className="inline-block px-2 py-1 mr-2 mb-2 bg-gray-200 rounded-md text-xs text-gray-700 hover:bg-gray-300">
-              {category}
-            </p>
-          </Link>
+          // <Link href={`/categories/${category}`} key={index}>
+          <p
+            key={index}
+            className="inline-block px-2 py-1 mr-2 mb-2 bg-gray-200 rounded-md text-xs text-gray-700 hover:bg-gray-300"
+          >
+            {category}
+          </p>
+          // </Link>
         ))}
-        
       </div>
     </div>
   );

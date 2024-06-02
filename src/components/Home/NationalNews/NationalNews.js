@@ -97,9 +97,9 @@ const NationalNews = async () => {
                   <div className="relative">
                     <Image
                       src={n.image[0]}
-                      alt={n.title}height={100}
+                      alt={n.title}
+                      height={100}
                       width={200}
-
                       // layout="fill"
                       objectFit="cover"
                       className="rounded-md"

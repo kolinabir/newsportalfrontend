@@ -18,7 +18,7 @@ const LoginPage = () => {
 
     try {
       await signIn(userId, password);
-      router.push("/"); // Redirect to the home page after successful login
+      router.push("/dashboard"); // Redirect to the home page after successful login
     } catch (err) {
       setError("Invalid username or password");
     }
