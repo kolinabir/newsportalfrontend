@@ -5,7 +5,6 @@ import Jobs from "@/components/Home/Jobs/Jobs";
 import Lifestyle from "@/components/Home/Lifestyle/Lifestyle";
 import NationalNews from "@/components/Home/NationalNews/NationalNews";
 import Politics from "@/components/Home/Politics/Politics";
-import Religion from "@/components/Home/Religion/Religion";
 import Sports from "@/components/Home/Sports/Sports";
 
 const MainHomePage = () => {
@@ -27,7 +26,7 @@ const MainHomePage = () => {
         <Entertainment></Entertainment>
         <Jobs></Jobs>
         <Lifestyle></Lifestyle>
-        <Religion></Religion>
+        {/* <Religion></Religion> */}
       </div>
     </div>
   );

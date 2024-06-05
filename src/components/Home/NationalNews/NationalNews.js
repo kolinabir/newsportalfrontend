@@ -1,12 +1,13 @@
+import NotFoundPage from "@/components/NotFoundPage/NotFoundPage";
 import Image from "next/image";
 import Link from "next/link";
 
 const NationalNews = async () => {
   const data = await fetch(
-    "https://server.searchbdnews.com/news/category/research",
+    "https://server.searchbdnews.com/news/category/national",
     {
       next: {
-        revalidate: 100,
+        revalidate: 1,
       },
     }
   );
@@ -20,9 +21,17 @@ const NationalNews = async () => {
           Latest News
         </h1>
       </div>
+      {news.data.length === 0 && (
+        <div className="flex flex-col items-center justify-center bg-gray-100 p-4">
+          <h1 className="text-3xl font-semibold text-gray-800 mb-2 text-center">
+            No news found here
+          </h1>
+        </div>
+      )}
       <div className="flex">
         <div className="grid grid-cols-1 md:pr-4 md:pt-4 lg:grid-cols-4 gap-2 ">
           {/* First news item */}
+
           {news.data.slice(0, 1).map((n, index) => (
             <Link
               key={index}

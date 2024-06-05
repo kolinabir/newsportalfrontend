@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Jobs = async () => {
   const data = await fetch(
-    "https://server.searchbdnews.com/news/category/research",
+    "https://server.searchbdnews.com/news/category/jobs",
     {
       next: {
         revalidate: 1,
@@ -20,7 +20,13 @@ const Jobs = async () => {
   return (
     <div className="md:mb-10 ">
       <h1 className="text-2xl md:mb-4 font-bold">Jobs News</h1>
-
+      {news.data.length === 0 && (
+        <div className="flex flex-col items-center justify-center bg-gray-100 p-4">
+          <h1 className="text-3xl font-semibold text-gray-800 mb-2 text-center">
+            No news found here
+          </h1>
+        </div>
+      )}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* First news item */}
         {news.data.slice(0, 1).map((n, index) => (

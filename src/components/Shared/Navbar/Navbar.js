@@ -23,12 +23,11 @@ const Navbar = () => {
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-2 md:py-3 relative">
             <Link href="/" passHref>
-              <p className="text-2xl font-semibold text-white dark:text-white">
+              <p className="text-xl md:text-2xl font-semibold text-white dark:text-white">
                 Search BD News
               </p>
             </Link>
             <div className="hidden md:flex md:space-x-4 md:items-center md:ml-auto">
-             
               <Link href="/allnews" passHref>
                 <p className="nav-link text-white">সকল</p>
               </Link>
@@ -119,10 +118,10 @@ const Navbar = () => {
               >
                 <span className="sr-only">Open main menu</span>
                 <svg
-                  className={`w-6 h-6 transition-transform duration-300 ${
+                  className={`w-6 h-6 text-white transition-transform duration-300 ${
                     isSidebarOpen ? "transform rotate-90" : ""
                   }`}
-                  fill="none"
+                  fill="#000000"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -146,45 +145,45 @@ const Navbar = () => {
           isSidebarOpen ? "translate-x-0" : "translate-x-full"
         } z-50`}
       >
-        <div className="h-full flex flex-col justify-between">
+        <div className="h-full flex flex-col justify-between bg-gray-100 dark:bg-gray-900">
           <div className="p-4">
-            <Link href="/allNews" passHref>
-              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-300">
+            <Link href="/allnews" passHref>
+              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 bg-white dark:bg-gray-800 rounded-md p-2 mb-2 transition-all duration-300 ease-in-out">
                 সকল
               </p>
             </Link>
             <Link href="/economy" passHref>
-              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-300">
+              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 bg-white dark:bg-gray-800 rounded-md p-2 mb-2 transition-all duration-300 ease-in-out">
                 অর্থনীতি
               </p>
             </Link>
             <Link href="/country" passHref>
-              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-300">
+              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 bg-white dark:bg-gray-800 rounded-md p-2 mb-2 transition-all duration-300 ease-in-out">
                 সারাদেশ
               </p>
             </Link>
             <Link href="/national" passHref>
-              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-300">
+              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 bg-white dark:bg-gray-800 rounded-md p-2 mb-2 transition-all duration-300 ease-in-out">
                 জাতীয়
               </p>
             </Link>
             <Link href="/international" passHref>
-              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-300">
+              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 bg-white dark:bg-gray-800 rounded-md p-2 mb-2 transition-all duration-300 ease-in-out">
                 আন্তর্জাতিক
               </p>
             </Link>
             <Link href="/sports" passHref>
-              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-300">
+              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 bg-white dark:bg-gray-800 rounded-md p-2 mb-2 transition-all duration-300 ease-in-out">
                 খেলা
               </p>
             </Link>
             <Link href="/entertainment" passHref>
-              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-300">
+              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 bg-white dark:bg-gray-800 rounded-md p-2 mb-2 transition-all duration-300 ease-in-out">
                 বিনোদন
               </p>
             </Link>
             <Link href="/jobs" passHref>
-              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-300">
+              <p className="nav-link text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 bg-white dark:bg-gray-800 rounded-md p-2 mb-2 transition-all duration-300 ease-in-out">
                 জবস
               </p>
             </Link>
