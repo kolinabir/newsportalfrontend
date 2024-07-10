@@ -11,8 +11,8 @@ const HeroSection = async () => {
 
   return (
     <div className="lg:flex md:mb-10 lg:items-center justify-center">
-      <div className="flex-1">
-        <div className="container md:mx-20 mx-auto">
+      <div className="">
+        <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-2">
             {/* First news item */}
             {news.data.slice(0, 1).map((n, index) => (
@@ -101,9 +101,9 @@ const HeroSection = async () => {
           </div>
         </div>
       </div>
-      <div className="col-span-2 lg:col-span-4 bg-white rounded-lg border lg:flex lg:justify-center lg:items-center lg:ml-28 lg:p-4">
+      {/* <div className="col-span-2 lg:col-span-4 bg-white rounded-lg border lg:flex lg:justify-center lg:items-center lg:ml-28 lg:p-4">
         Feedback
-      </div>
+      </div> */}
     </div>
   );
 };

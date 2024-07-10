@@ -12,6 +12,15 @@ export async function generateStaticParams() {
   const news = await data.json();
   return news.data.map((newsItem) => ({ newsID: newsItem._id }));
 }
+export async function generateMetadata({ params }) {
+  const news = await viewAllNews(params.newsID);
+  return {
+    title: news?.title || "News" + " | SearchBDNews",
+    description: news.description,
+    image: news.image[0],
+    url: `https://searchbdnews.com/news/${news._id}`,
+  };
+}
 
 const SingleNewsDetails = async ({ params }) => {
   const news = await viewAllNews(params.newsID);
@@ -33,7 +42,7 @@ const SingleNewsDetails = async ({ params }) => {
     <div className="max-w-6xl mx-auto px-4 lg:px-0 mt-2">
       <div className="flex justify-between mb-4">
         <div>
-          <h1 className="text-3xl font-bold mb-4">{news.title}</h1>
+          <h1 className="text-3xl font-bold mt-3 mb-4">{news.title}</h1>
           <div className="border-b border-gray-400 mb-4"></div>
           <p className="text-sm text-gray-500 mb-4">{publishedAtBangla}</p>
           <div className="flex justify-between">

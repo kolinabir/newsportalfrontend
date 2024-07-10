@@ -1,7 +1,9 @@
 "use client";
 import { useAuth } from "@/app/auth-context";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import logo from "../../../../public/file.png";
 
 const Navbar = () => {
   const { user } = useAuth();
@@ -23,34 +25,51 @@ const Navbar = () => {
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-2 md:py-3 relative">
             <Link href="/" passHref>
-              <p className="text-xl md:text-2xl font-semibold text-white dark:text-white">
-                Search BD News
-              </p>
+              <Image
+                className="scale-100 hover:scale-110 transition-transform duration-300 ease-in-out"
+                src={logo}
+                alt="logo"
+                width={150}
+                height={60}
+              />
             </Link>
             <div className="hidden md:flex md:space-x-4 md:items-center md:ml-auto">
               <Link href="/allnews" passHref>
-                <p className="nav-link text-white">সকল</p>
+                <p
+                  className="nav-link text-white hover:text-blue-500
+                "
+                >
+                  সকল
+                </p>
               </Link>
               <Link href="/economy" passHref>
-                <p className="nav-link text-white">অর্থনীতি</p>
+                <p className="nav-link text-white hover:text-blue-500">
+                  অর্থনীতি
+                </p>
               </Link>
               <Link href="/country" passHref>
-                <p className="nav-link text-white">সারাদেশ</p>
+                <p className="nav-link text-white hover:text-blue-500">
+                  সারাদেশ
+                </p>
               </Link>
               <Link href="/national" passHref>
-                <p className="nav-link text-white">জাতীয়</p>
+                <p className="nav-link text-white hover:text-blue-500">জাতীয়</p>
               </Link>
               <Link href="/international" passHref>
-                <p className="nav-link text-white">আন্তর্জাতিক</p>
+                <p className="nav-link text-white hover:text-blue-500">
+                  আন্তর্জাতিক
+                </p>
               </Link>
               <Link href="/sports" passHref>
-                <p className="nav-link text-white">খেলা</p>
+                <p className="nav-link text-white hover:text-blue-500">খেলা</p>
               </Link>
               <Link href="/entertainment" passHref>
-                <p className="nav-link text-white">বিনোদন</p>
+                <p className="nav-link text-white hover:text-blue-500">
+                  বিনোদন
+                </p>
               </Link>
               <Link href="/jobs" passHref>
-                <p className="nav-link text-white">জবস</p>
+                <p className="nav-link text-white hover:text-blue-500">জবস</p>
               </Link>
               <div className="relative">
                 <input
@@ -73,7 +92,7 @@ const Navbar = () => {
                   />
                 </svg>
               </div>
-              <button
+              {/* <button
                 onClick={toggleDarkMode}
                 className="text-white dark:text-gray-300 focus:outline-none"
               >
@@ -108,7 +127,7 @@ const Navbar = () => {
                     />
                   </svg>
                 )}
-              </button>
+              </button> */}
             </div>
             <div className="flex items-center md:hidden">
               <button

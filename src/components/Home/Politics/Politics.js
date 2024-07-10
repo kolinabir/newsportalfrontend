@@ -18,7 +18,7 @@ const Politics = async () => {
 
   return (
     <div className="md:mb-10 ">
-      <h1 className="text-2xl md:mb-4 font-bold">Politics News</h1>
+      <h1 className="text-2xl md:mb-4 font-bold">Political News</h1>
       {news.data.length === 0 && (
         <div className="flex flex-col items-center justify-center bg-gray-100 p-4">
           <h1 className="text-3xl font-semibold text-gray-800 mb-2 text-center">
